@@ -1,0 +1,197 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #b1c8ac;
+    padding: 50px;
+    position: relative;
+    height: 600px;
+}
+
+.a {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: #ffcaaa;
+    width: 226px;
+    height: 360px;
+    border-radius: 38px 0 0 38px;
+    border: 1px solid #95755e;
+    border-width: 1px 0 1px 1px;
+}
+
+.a:before {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 246px;
+    height: 240px;
+    border-top: 1px solid #95755e;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin: auto auto auto -224px;
+    background-color: #ffcaaa;
+}
+
+.a:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 150px;
+    height: 90px;
+    border: 1px solid #95755e;
+    border-width: 1px 1px 0 0;
+    border-radius: 0 45px 45px 0;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin: 0 auto auto 30px;
+    background-color: #ffcaaa;
+    transform: rotate(-65deg);
+    transform-origin: left top;
+    box-shadow: -4px -4px 22px 2px #ffcaaa inset, -4px 4px 30px 2px #ffcaaa inset, -25px 2px 10px 3px #fce0d4 inset, -80px 2px 10px 1px #ffcaaa inset, -100px 2px 20px 0px #efb38f inset;
+    transition: all .3s;
+}
+
+.b {
+    width: 180px;
+    height: 90px;
+    border: 1px solid #95755e;
+    position: absolute;
+    border-radius: 45px;
+    box-shadow: -4px -4px 22px 2px #ffcaaa inset, -4px 4px 30px 2px #ffcaaa inset, -25px 2px 10px 3px #fce0d4 inset;
+    background-color: #ffcaaa;
+    z-index: -1;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto -90px -1px auto;
+    -webkit-box-reflect: above 178px;
+    box-reflect: above 178px;
+}
+
+.b:before {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 180px;
+    height: 90px;
+    border: 1px solid #95755e;
+    right: 0;
+    top: -91px;
+    border-radius: 45px;
+    border-width: 1px 1px 1px 0;
+    box-shadow: -4px -4px 22px 2px #ffcaaa inset, -4px 4px 30px 2px #ffcaaa inset, -25px 2px 10px 3px #fce0d4 inset;
+    background-color: #ffcaaa;
+}
+.c {
+    width: 180px;
+    height: 90px;
+    border: 1px solid #95755e;
+    position: absolute;
+    border-radius: 45px;
+    box-shadow: -4px -4px 22px 2px #ffcaaa inset, -4px 4px 30px 2px #ffcaaa inset, -25px 2px 10px 3px #fce0d4 inset;
+    background-color: #ffcaaa;
+    z-index: -1;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: 90px -90px -1px auto;
+    /*-webkit-box-reflect: above 178px;
+    box-reflect: above 178px;*/
+}
+
+.c:before {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 180px;
+    height: 90px;
+    border: 1px solid #95755e;
+    right: 0;
+    top: -91px;
+    border-radius: 45px;
+    border-width: 1px 1px 1px 0;
+    box-shadow: -4px -4px 22px 2px #ffcaaa inset, -4px 4px 30px 2px #ffcaaa inset, -25px 2px 10px 3px #fce0d4 inset;
+    background-color: #ffcaaa;
+}
+
+/*.b:after{content: " ";display: block;position: absolute;width: 180px;height:90px;border: 1px solid #95755e;right: 0;top:182px;border-radius: 45px;border-width: 1px 1px 1px 0;box-shadow:-4px -4px 22px 2px #ffcaaa inset, -4px 4px 30px 2px #ffcaaa inset, -25px 2px 10px 3px #fce0d4 inset;background-color: #ffcaaa;}*/
+
+.hide {
+    opacity: 0;
+    color: red;
+    font-size: 60px;
+    position: absolute;
+    right: 60px;
+    top: 150px;
+}
+
+.num {
+    animation: myani .6s ease;
+    -moz-animation: myani .6s ease;
+    -webkit-animation: myani .6s ease;
+    -o-animation: myani .6s ease;
+}
+
+@keyframes myani() {
+    form {
+        opacity: 0;
+        top: 150px;
+    }
+    to {
+        opacity: 1;
+        top: 50px;
+    }
+}
+
+@-moz-keyframes myani {
+    form {
+        opacity: 0;
+        top: 150px;
+    }
+    to {
+        opacity: 1;
+        top: 50px;
+    }
+}
+
+@-webkit-keyframes myani {
+    form {
+        opacity: 0;
+        top: 150px;
+    }
+    to {
+        opacity: 1;
+        top: 50px;
+    }
+}
+
+@-o-keyframes myani {
+    form {
+        opacity: 0;
+        top: 150px;
+    }
+    to {
+        opacity: 1;
+        top: 50px;
+    }
+}
+
+:root {
+    --green: #b1c8ac;
+}
+
+body {
+    background-color: var(--green);
+}

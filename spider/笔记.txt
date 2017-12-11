@@ -1,0 +1,28 @@
+需要用到的 node 模块
+Express 	较成熟的作为 sever 的一个模块
+Request	相当于前端的 $ 的 ajax 的方法 是后端发送请求的一个模块
+Cheerio	在爬虫系统中起到了至关重要的作用  它可以像前端一样操纵从服务端拉取回来的数据  它可以动态地去分析所有的 dom 元素  前提是需要把 html  转换为 dom 树 它也有转换的方法
+
+//进入桌面
+cd Desktop
+//创建项目
+express spider
+//进入目录
+cd spider
+//安装所有的包
+npm install
+//运行测试
+npm run start
+//安装 request
+npm install request --save
+//安装 cheerio
+npm install cheerio --save
+
+
+参考网址:
+http://www.expressjs.com.cn/4x/api.html
+https://www.npmjs.com/package/request
+https://www.npmjs.com/package/cheerio
+
+//禁止爬虫操作的 txt 文件
+robots.txt

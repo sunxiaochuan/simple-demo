@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,UAAW;EAAE,KAAK,EAAE,IAAI;;AAExB,oBAAqB;EACnB,KAAK,EAAE,IAAI;EACX,KAAK,EAAE,KAAoB;;AAG7B,2BAA4B;EAC1B,KAAK,EAAE,KAAK;EACZ,KAAK,EAAE,MAAoB",
+"sources": ["calc.scss"],
+"names": [],
+"file": "calc.css"
+}

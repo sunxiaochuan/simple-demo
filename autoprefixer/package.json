@@ -1,0 +1,19 @@
+{
+  "name": "autoprefixer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^7.2.3",
+    "css-mqpacker": "^6.0.1",
+    "csswring": "^6.0.2",
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.4.0",
+    "gulp-postcss": "^7.0.0"
+  }
+}

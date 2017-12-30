@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Chrome 高级调试技巧</title>
+	<link href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.css" rel="stylesheet">
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+	<script type="text/javascript" src="index.js"></script>
+	<style type="text/css">
+		body{
+			padding: 15px;
+		}
+		#test-div{
+			width: 100px;
+			height: 20px;
+			background-color: #eee;
+			border: 1px solid #333;
+			top: 30px;
+			left: 200px;
+			text-align: center;
+			cursor: default;
+		}
+	</style>
+</head>
+<body>
+	<label for="exampleInputEmail">Email address</label>
+	<input type="email" class="form-control" id="exampleInput" placeholder="Email">
+	<button type="button" style="margin-top: 5px;" id="btn-test" class="btn btn-success">测试成功</button>
+	<div id="test-div">一段文字</div>
+</body>
+<script>
+	$('#btn-test').click(function(){
+		alert($('#exampleInput').val());
+		// $('#test-div').hide();
+	})
+</script>
+</html>

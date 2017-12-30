@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "karma": "^1.7.1",
+    "karma-cli": "^1.0.1"
+  }
+}

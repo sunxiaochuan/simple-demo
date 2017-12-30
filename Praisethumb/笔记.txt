@@ -1,0 +1,88 @@
+			小手demo 
+先在桌面新建名为 Praisethumb 的文件夹
+使用 cmder 进入该文件夹 
+初始化项目    npm init     -> 生成项目配置文件 package.json
+安装 babel 配置文件     cnpm install  babel-cli --save-dev(给当前项目安装)      cnpm install -g  babel-cli(给全局项目安装)
+
+在项目中新建一个 .babelrc 的配置文件  内容为：  
+{ 'prestes':['es2015'],
+	'plugins':[] 
+	}
+
+安装 es2015 配置文件   cnpm install babel-preset-es2015 --save-dev
+
+网上看到的小技巧：改完 package.json 在当前目录按住 Shift 同时点右键，找到 “在此处打开命令窗口”然后输入命令：npm install(它会帮我们在当前目录下安装 devDependencies 所列出的东东)
+
+新建 scripts 文件夹 内部写出 父类 index.js 文件 和子类 thumb.js 文件
+再在外部新建一个 index.js 文件 .babelrc 文件
+
+cmder 命令行 进入 scripts 文件夹 
+将自己的es6代码文件转译为es5
+//*********注意：此时安装的 babel 只是依赖于当前项目中的，所以 直接  babel index.js -o index-es.js   全局方法中是没有 babel 命令的所以要改为 node_modules\.bin\babel index.js -o index-es.js 
+参考网址(http://blog.csdn.net/jx520/article/details/53813199)************//
+后来又在全局安装了 babel  (cnpm install -g  babel-cli)即可使用了
+babel index.js -o index-es.js
+babel thumb.js -o thumb-es.js
+
+转译成功后 将html放到项目中 body 底部引入 js 文件 
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="index.js"></script>
+	<script type="text/javascript" src="./scripts/thumb-es.js"></script>
+此时页面运行是会报错"Uncaught ReferenceError: require is not defined"
+此时需要用到 万能模块加载器 systemjs (网址:https://github.com/systemjs/systemjs)  在网站上找到   "Getting Started" 的链接按钮  
+在页面写如下代码:
+将上面的引用 thumb-es.js 删掉
+<script src="https://cdn.bootcss.com/systemjs/0.20.19/system.js"></script>
+	<script type="text/javascript">
+		SystemJS.config({
+			//使用的 js 文件的文件夹路径
+		  baseURL: '/PraiseThumb/scripts'
+		});
+		//使用的 js 文件名称
+		SystemJS.import('index-es.js').then(function(m) {
+			$.extend({
+				//将自己写的函数挂载到 jq 上称为一个插件
+				thumb:m.default.Thumb
+			})
+			//回调函数
+	      callBack();
+	    });
+		//定义回调函数
+		function callBack() {
+			//为页面元素添加方法
+			var f = new $.thumb(0,$('#thumb'));
+			f.clickAction();
+		}
+	</script>
+
+systemjs 这个 文件必须要在服务器上运行
+已完成
+
+
+
+		单元测试
+cd .. 到 C:\Users\sunxiaochuan\Desktop\Praisethumb  项目目录中
+安装   
+cnpm install karma --save-dev       
+cnpm install karma-cli --save-dev
+ cnpm install karma-jasmine jasmine-core karma-chrome-launcher --save-dev
+ cnpm install phantomjs --save-dev
+ cnpm install karma-phantomjs-launcher --save-dev
+
+ karma init   生成 karma.conf.js 文件在里面配置 
+ 修改两处：
+ files: [
+        '*js'//这个意思是 与 karma-conf.js  平级的 js 文件
+    ],
+  exclude: [
+        'karma-conf.js'//不需要检测的是它本身
+    ],  
+    singleRun: true,
+
+在 karma start  之前一定要新建一个 index.spec.js 文件
+内部写如下格式的代码:
+describe('大拇指点赞测试用例',function () {
+	it('测试增加点赞',function () {
+		expect(window.add(1)).toBe(2);
+	})
+})

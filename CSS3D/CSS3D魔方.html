@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3D</title>
+    <style type="text/css">
+    h2 {
+        text-align: center;
+    }
+
+    #box {
+        /* 开启 3D 视图的属性*/
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        position: relative;
+
+        /*当前视点与屏幕之间的距离的属性  前后方向  可在浏览器中自行变换数值查看*/
+        /*-webkit-perspective:130;*/
+        /*当前的视角位置的属性  第一个值是左右方向的 第二个值是上下方向的且数值必须是 px 可在浏览器中自行变换数值查看*/
+        /*-webkit-perspective-origin:-20% -40px;*/
+
+        /*增加动画*/
+        /*设置基准点 x y z*/
+        transform-origin: 80px 80px 0;
+        animation: animate 10s ease-in-out infinite;
+    }
+
+    #box div {
+        position: absolute;
+        width: 160px;
+        height: 160px;
+        border: 3px solid #000;
+        line-height: 160px;
+        text-align: center;
+        background-color: rgba(255, 200, 100, .8);
+        color: orange;
+        font-size: 120px;
+    }
+
+    #box .one {
+        -webkit-transform: translateZ(80px);
+        transform: translateZ(80px);
+    }
+
+    #box .two {
+        transform: rotateX(-90deg) translateZ(80px);
+    }
+
+    #box .three {
+        transform: rotateX(90deg) translateZ(80px);
+    }
+
+    #box .four {
+        /*transform:rotateX(180deg) translateZ(80px);*/
+        /*上面的或者是下面的简单的方法都可以实现*/
+        transform: translateZ(-80px);
+    }
+
+    #box .five {
+        transform: rotateY(-90deg) rotateZ(-90deg) translateZ(80px);
+    }
+
+    #box .six {
+        transform: rotateY(90deg) rotateZ(90deg) translateZ(80px);
+    }
+
+    @keyframes animate {
+        0 {
+            transform: rotateX(0) rotateY(0) rotateZ(0);
+        }
+        25% {
+            transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+        }
+        50% {
+            transform: rotateX(0) rotateY(0) rotateZ(0);
+        }
+75% {
+            transform: rotateX(720deg) rotateY(720deg) rotateZ(720deg);
+        }
+        100% {
+            transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <h2>CSS3D基础</h2>
+    <div id="view" style="width: 160px;height: 160px;margin: 80px auto 0 auto;">
+        <div id="box">
+            <div class="one">A</div>
+            <div class="two">B</div>
+            <div class="three">C</div>
+            <div class="four">D</div>
+            <div class="five">E</div>
+            <div class="six">F</div>
+        </div>
+    </div>
+</body>
+
+</html>

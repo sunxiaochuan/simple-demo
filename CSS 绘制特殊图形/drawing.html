@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS 绘制特殊图形</title>
+    <style type="text/css">
+    div {
+        width: 300px;
+        height: 300px;
+        background-color: orange;
+        border: 30px solid;
+        border-bottom-color: blueviolet;
+        border-right-color: crimson;
+        border-top-color: darkturquoise;
+        border-left-color: deeppink;
+        float: left;
+        margin-right: 5px;
+    }
+
+    .dengyao {
+        width: 0;
+        height: 0;
+        background-color: transparent;
+        border-right-color: transparent;
+        border-top-color: transparent;
+        border-left-color: transparent;
+    }
+
+    .zhijiao {
+        width: 0;
+        height: 0;
+        background-color: transparent;
+        border-bottom: 0;
+        border-left: 0;
+        border-top-color: transparent;
+    }
+
+    .tixing {
+        width: 50px;
+        height: 0;
+        background-color: transparent;
+        border-left-color: transparent;
+        border-right-color: transparent;
+        border-top-color: transparent;
+    }
+
+    .yuan {
+        border: 0;
+        width: 100px;
+        height: 100px;
+        /* border-top-left-radius: 50%; */
+        /* border-top-right-radius: 150px; */
+        /* border-bottom-left-radius: 50%; */
+        /* border-bottom-right-radius: 150px; */
+        border-radius: 50%;
+    }
+    .tuoyuan{
+    	width: 100px;
+    	height: 80px;
+    	border: 0;
+    	background-color: darksalmon;
+    	border-radius: 50%;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="dengyao"></div>
+    <div class="zhijiao"></div>
+    <div class="tixing"></div>
+    <div class="yuan"></div>
+    <div class="tuoyuan"></div>
+</body>
+
+</html>

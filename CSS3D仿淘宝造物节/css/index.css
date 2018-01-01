@@ -1,0 +1,33 @@
+body{
+	background: url(../images/bg.jpg);
+}
+.container{
+	margin: 0 auto;
+	width: 8.0625rem;
+	/*这里说一下这个 25.25rem 是怎么来的  通过 js 中的变量 radius 计算后的值 404 / 16 得到的 */
+	perspective: 25.25rem;
+}
+#box{
+	-webkit-transform-style: preserve-3d;
+	height: 100%;
+	-webkit-perspective-origin:50% 50%;
+}
+#box div{
+	/*绝对定位 为了在 js 计算旋转角度时使用*/
+	position: absolute;
+	/*通过小原图的宽度 129 / 16 得到的*/
+	width: 8.0625rem;
+	/*通过小原图的高度 1170 / 16 得到的*/
+	height: 73.125rem;
+}
+.togglebtn{
+	position: absolute;
+	width: 50px;
+	height: 30px;
+	line-height: 30px;
+	color: #fff;
+	z-index: 10;
+	right: 0;
+	top: 0;
+	text-align: center;
+}

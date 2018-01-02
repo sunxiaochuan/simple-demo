@@ -3,9 +3,15 @@
 <head>
 	<meta charset="UTF-8">
 	<title>desensitization脱敏</title>
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-	<script src="./desensitization.js"></script>
 	<a href="https://www.jianshu.com/p/30e64df6674a">简书地址</a>
+	<p id="testData1" data-str="13688898866">136****8866</p>
+	<p id="testData2" data-str="13688898865">136****8865</p>
+	<!-- 全局公用的对数据脱敏处理方法  -->
+	<script src="./desensitization.js"></script>
+	<!-- 全局公用的对脱敏数据点击显示与隐藏方法 -->
+	<script src="clicktoogle.js"></script>
 </body>
 </html>

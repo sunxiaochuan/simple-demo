@@ -1,4 +1,4 @@
-//全局公用的对数据脱敏处理方法
+//全局公用的对数据脱敏处理方法  参数可以使单个也可以是数组，但是格式必须是字符串
 function publicDesensitization(){
 	//先将内置的 arguments 转换为真正的数组
 	var dataArr = Array.prototype.slice.apply(arguments);

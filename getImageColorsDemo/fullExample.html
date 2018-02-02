@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>获取图片主题色脚本扩展的完整的示例</title>
+    <script src="./rgbaster.js"></script>
+    <style>
+    	img{
+    		padding: 40px;
+    	}
+    </style>
+</head>
+
+<body>
+    <img src="./demo.jpg" alt="" id="image">
+    <script type="text/javascript">
+    var img = document.getElementById('image');
+    RGBaster.colors(img, {
+        // return up to 30 top colors from the palette  从调色板返回最多30个顶级颜色
+        paletteSize: 30,
+
+        // don't count white
+        //排除 白色
+        exclude: ['rgb(255,255,255)'],
+
+        // do something when done
+        //获取成功之后
+        success: function(payload) {
+        	// img.style.backgroundColor = payload.dominant;
+        	img.style.backgroundColor = payload.secondary;
+            console.log('Dominant color:', payload.dominant);//主色
+            console.log('Secondary color:', payload.secondary);//次色
+            console.log('Palette:', payload.palette);//调色板
+        }
+    })
+    </script>
+</body>
+
+</html>

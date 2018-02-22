@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function test(argument) {
+			console.log(Array.prototype.slice.apply(arguments));
+		}
+		test('sun','xiao','chuan');//(3) ["sun", "xiao", "chuan"]
+		//arguments 本身也是可以直接使用下标查找相应的元素的，还可以用 length 属性调取长度
+	</script>
+</body>
+</html>

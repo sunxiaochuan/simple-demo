@@ -1,0 +1,94 @@
+@import '/css/layout.css';
+/*配合 js 计算的 rem 使用具体换算设计稿的 20px = 20 / @layremvalue*/
+[id*='id'],
+[id^='id'] {
+  height: 8.61rem;
+}
+.calendar-range {
+  text-align: center;
+  color: #2e4052;
+  font-size: 0.32rem;
+  position: relative;
+  background-color: #fff;
+  max-height: 8.61rem;
+}
+.calendar-range .color-blue {
+  color: #4289fe;
+}
+.calendar-range .calendar-week {
+  display: flex;
+  height: 0.48rem;
+}
+.calendar-range .calendar-week .week-text {
+  font-size: 0.24rem;
+  flex: 14.28571429;
+  line-height: 0.48rem;
+  background-color: #fafafa;
+}
+.calendar-range .calendar-scroll {
+  overflow-y: auto;
+  max-height: 7.25rem;
+}
+.calendar-range .calendar-scroll .scroll-content {
+  padding: 0.15rem 0 0;
+}
+.calendar-range .calendar-scroll .scroll-content div {
+  float: left;
+}
+.calendar-range .calendar-scroll .scroll-content .content-title {
+  width: 100%;
+  line-height: 0.5rem;
+  height: 0.5rem;
+  color: #000000;
+  font-size: 0.32rem;
+}
+.calendar-range .calendar-scroll .scroll-content .content-item {
+  width: 14.28571429%;
+  height: 1.12rem;
+  line-height: 0.5rem;
+  padding: 0.06rem 0;
+  transition: all .2s;
+}
+.calendar-range .calendar-scroll .scroll-content .content-item-start,
+.calendar-range .calendar-scroll .scroll-content .content-item-end {
+  background-color: #4289fe;
+  color: #fff;
+  border-radius: 0.08rem;
+  position: relative;
+}
+.calendar-range .calendar-scroll .scroll-content .content-item-start::before,
+.calendar-range .calendar-scroll .scroll-content .content-item-end::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.06rem;
+  font-size: 0.24rem;
+}
+.calendar-range .calendar-scroll .scroll-content .content-item-start::before {
+  content: '开始';
+}
+.calendar-range .calendar-scroll .scroll-content .content-item-end::before {
+  content: '结束';
+}
+.calendar-range .calendar-scroll .scroll-content .content-item-middle {
+  background-color: #ecf3fe;
+}
+.calendar-range .calendar-btn {
+  height: 0.88rem;
+  line-height: 0.88rem;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 1px 0 0 #ddd inset;
+}
+.calendar-range .calendar-btn div {
+  flex: 50%;
+}
+.calendar-range .calendar-btn .reset-btn {
+  color: #2e4052;
+}
+.calendar-range .calendar-btn .confirm-btn {
+  color: #fff;
+  background-color: #4289fe;
+}

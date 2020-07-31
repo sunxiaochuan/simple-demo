@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>纯函数示例</title>
+</head>
+
+<body>
+    <script>
+    var xs = [1, 2, 3, 4, 5];
+    //Array.slice 是纯函数，因为它没有副作用，对于固定的输入，输出总是固定的
+    xs.slice(0, 3); //[1,2,3]
+    xs.slice(0, 3); //[1,2,3]
+    //Array.splice 这个就不是纯函数，因为它将原数组改变了
+    xs.splice(0, 3); //[1,2,3]
+    xs.splice(0, 3); //[4, 5]
+    </script>
+</body>
+
+</html>

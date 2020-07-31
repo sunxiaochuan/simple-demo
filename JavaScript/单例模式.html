@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>单例模式应用 Demo</title>
+</head>
+<body>
+	<script>
+		var myFn = (function() {
+			var model;
+			var myFn = function(age) {
+				console.log(model);
+				if(model){
+					return model;
+				}
+				this.age = age;
+				this.init();
+				return model = this;
+			};
+			myFn.prototype.init = function() {
+				console.log(this.age);
+			};
+			return myFn;
+		})();
+		var obj = new  myFn(23);
+		var obj = new  myFn(22);
+	</script>
+</body>
+</html>

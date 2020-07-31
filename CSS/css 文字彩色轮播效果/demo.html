@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css 文字彩色轮播效果</title>
+    <style>
+        p {
+            -webkit-mask-image: linear-gradient(to right, red, orange, yellow, green, cyan, blue, purple);
+            background-image: linear-gradient(to right, red, orange, yellow, green, yellow, orange, red, orange, yellow, green, yellow, orange, red);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% 100%;
+            animation: bganimate 5s infinite linear;
+            font-size: 30px;
+        }
+
+        @keyframes bganimate {
+            0% {
+                background-position: 0 0,
+            }
+            100% {
+                background-position: -100% 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <p>这是一段测试效果的段落文字，嗯哼~~！这个示例是依据张鑫旭个人主页首页看到的效果，在源码查看后，这里进行一份保存。</p>
+</body>
+
+</html>

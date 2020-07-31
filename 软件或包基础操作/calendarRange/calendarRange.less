@@ -1,0 +1,102 @@
+@import '/css/layout.css';
+/*配合 js 计算的 rem 使用具体换算设计稿的 20px = 20 / @layremvalue*/
+@layremvalue: 100rem;
+// 日历范围插件样式表
+@activeColor: #4289fe;
+@middleColor: #ecf3fe;
+
+[id*='id'],
+[id^='id'] {
+  height: (48 + 725 + 88) / @layremvalue;
+}
+.calendar-range {
+  text-align: center;
+  color: #2e4052;
+  font-size: 32 / @layremvalue;
+  position: relative;
+  background-color: #fff;
+  max-height: (48 + 725 + 88) / @layremvalue;
+  .color-blue {
+    color: @activeColor;
+  }
+  .calendar-week {
+    display: flex;
+    height: 48 / @layremvalue;
+    .week-text {
+      font-size: 24 / @layremvalue;
+      flex: 100 / 7;
+      line-height: 48 / @layremvalue;
+      background-color: #fafafa;
+    }
+  }
+  .calendar-scroll {
+    overflow-y: auto;
+    max-height: 725/@layremvalue;
+    .scroll-content {
+      padding: 15 / @layremvalue 0 0;
+      div {
+        float: left;
+      }
+      .content-title {
+        width: 100%;
+        line-height: 50 / @layremvalue;
+        height: 50 / @layremvalue;
+        color: #000000;
+        font-size: 32 / @layremvalue;
+      }
+      .content-item {
+        width: 100 / 7%;
+        height: 112 / @layremvalue;
+        line-height: 50 / @layremvalue;
+        padding: 6 / @layremvalue 0;
+        transition: all .2s;
+        &-start,
+        &-end {
+          background-color: @activeColor;
+          color: #fff;
+          border-radius: 8 / @layremvalue;
+          position: relative;
+          &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 6 / @layremvalue;
+            font-size: 24 / @layremvalue;
+          }
+        }
+        &-start {
+          &::before {
+            content: '开始';
+          }
+        }
+        &-end {
+          &::before {
+            content: '结束';
+          }
+        }
+        &-middle {
+          background-color: @middleColor;
+        }
+      }
+    }
+  }
+  .calendar-btn {
+    height: 88 / @layremvalue;
+    line-height: 88 / @layremvalue;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 1px 0 0 #ddd inset;
+    div {
+      flex: 50%;
+    }
+    .reset-btn {
+      color: #2e4052;
+    }
+    .confirm-btn {
+      color: #fff;
+      background-color: @activeColor;
+    }
+  }
+}

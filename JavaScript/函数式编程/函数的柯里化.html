@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>函数的柯里化</title>
+</head>
+
+<body>
+    <script src="https://cdn.bootcss.com/lodash.js/4.17.5/lodash.min.js"></script>
+    <script>
+    	//lodash -> curry()  用法详见：https://www.lodashjs.com/docs/4.17.5.html#curry
+    var match = _.curry((reg, str) => str.match(reg));//js -> match() 方法可在字符串内检索指定的值，或找到一个或多个正则表达式的匹配。该方法类似 indexOf() 和 lastIndexOf()，但是它返回指定的值，而不是字符串的位置。
+    var filter = _.curry((f, arr) => arr.filter(f));//js -> filter() 方法创建一个新的数组，新数组中的元素是通过检查指定数组中符合条件的所有元素。
+    var haveSpace = match(/\s+/g); //正则 匹配空格
+    haveSpace('ffffff');//null  相当于是 match(/\s+/g)('ffffff')  -> ('ffffff').match(/\s+/g)
+    haveSpace('a b');//[" "]
+
+    filter(haveSpace,['abcdef','Hello World']);//["Hello World"]  相当于是  ['abcdef','Hello World'].filter(match(/\s+/g)); 数组中的第二个元素被匹配上了 所以是上面的输出
+
+    filter(haveSpace)(['abcdef','Hello World']);//["Hello World"]   因为上面扩展了 lodash 的 curry 方法所以执行的结构与上面的一致
+    </script>
+</body>
+
+</html>

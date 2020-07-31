@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>软绑定 示例代码</title>
+</head>
+
+<body>
+    <script>
+        if (!Function.prototype.softBind) {
+            Function.prototype.softBind = function (obj) {
+                var fn = this;
+                // 捕获所有 curried 参数
+                var curried = [].slice.call(arguments, 1);
+                var bound = function () {
+                    return fn.apply((!this || this === (window || global)) ? obj : this, curried.concat.apply(curried, arguments));
+                };
+                bound.prototype = Object.create(fn.prototype);
+                return bound;
+            };
+        }
+
+        function foo() {
+            console.log("name: " + this.name);
+        }
+        var obj = { name: "obj" },
+            obj2 = { name: "obj2" },
+            obj3 = { name: "obj3" };
+        var fooOBJ = foo.softBind(obj);
+        fooOBJ(); // name: obj
+        obj2.foo = foo.softBind(obj);
+        obj2.foo(); // name: obj2 <---- 看！！！
+        fooOBJ.call(obj3); // name: obj3 <---- 看！
+        setTimeout(obj2.foo, 10);// name: obj <---- 应用了软绑定
+
+        // 简单的分析：
+        // 由于每次 this 都是一个 json 对象不为空也没有指向全局对象，所以三元表达式判断的结果都是 this 也就是 obj obj2 obj3 obj 
+        // slice 从已有的数组中返回选定的元素,第二个参数是索引值代表从 1 到最后一位 例：{ name: "obj" } 由于这几个对象都是一个对象且只有一个键值对，所以的得到的 curried 一直都为 [] 空数组
+        //concat 用于连接两个或多个数组。 该方法不会改变现有的数组,而仅仅会返回被连接数组的一个副本
+    </script>
+</body>
+
+</html>

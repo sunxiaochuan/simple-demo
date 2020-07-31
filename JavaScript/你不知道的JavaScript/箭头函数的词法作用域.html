@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>箭头函数的词法作用域</title>
+</head>
+
+<body>
+    <script>
+        // 示例1 箭头函数的绑定无法被修改。（new 也不行！）
+        function foo() {
+            // 返回一个箭头函数
+            return (a) => {
+                //this 继承自 foo()
+                console.log(this.a);
+            };
+        }
+        var obj1 = {
+            a: 2
+        };
+        var obj2 = {
+            a: 3
+        };
+        var bar = foo.call(obj1);
+        bar.call(obj2); // 2, 不是 3 ！
+        // foo() 内部创建的箭头函数会捕获调用时 foo() 的 this。由于 foo() 的 this 绑定到 obj1，bar（引用箭头函数）的 this 也会绑定到 obj1，箭头函数的绑定无法被修改。（new 也不行！）
+
+        // 示例2 箭头函数最常用于回调函数中，例如事件处理器或者定时器
+        function foo() {
+            setTimeout(() => {
+                // 这里的 this 在此法上继承自 foo()
+                console.log(this.a);
+            }, 100);
+        }
+        var obj = {
+            a: 2
+        };
+        foo.call(obj); // 2
+
+        // 示例3 在 ES6 之前已经使用的一种几乎和箭头函数完全一样的模式。
+        function foo() {
+            var self = this; // lexical capture of this
+            setTimeout(function () {
+                console.log(self.a);
+            }, 100);
+        }
+        var obj = {
+            a: 2
+        };
+        foo.call(obj); // 2
+    </script>
+</body>
+
+</html>
